@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Upload image</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="dropzone" id="dropzone">
+        <div id="inner_dropzone"></div>
+        <p id="text">Drop images here to upload</p>
+        <input id="file-input" type="file" name="name" style="display: none;" accept="image/*" />
+    </div>
+
+    <script>
+        (function() {
+            var dropzone = document.getElementById('dropzone');
+
+            var inner_dropzone = document.getElementById('inner_dropzone');
+
+            var text = document.getElementById('text');
+
+            var upload = function(files) {
+                var formData = new FormData();
+                var xhr = new XMLHttpRequest;
+
+                formData.append("file", files[0]);
+
+                xhr.onreadystatechange = function() {
+                    var jsonobj = JSON.parse(this.responseText)
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText);
+                        window.location = jsonobj.linkToFile;
+                    } else {
+                        if (jsonobj.error === "Only images allowed") {
+                            alert("Only images are allowed");
+                        }
+                        if (jsonobj.error === "Max file size has been exeeded") {
+                            alert("Your file was too large");
+                        }
+                    }
+                };
+
+                xhr.upload.onprogress = function(e) {
+                    //console.log(e.loaded / e.total * 100);
+                    var length = e.loaded / e.total * 100;
+                    var whats_left = 100 - length
+
+                    //inner_dropzone.style.marginTop = whats_left + "%";
+
+                    inner_dropzone.style.height = length + "%";
+
+                    inner_dropzone.style.transition = "all " + e.total / 10000000 + "s";
+                }
+
+                var update_percent = function() {
+                    var style = getComputedStyle(inner_dropzone);
+
+                    var style2 = getComputedStyle(dropzone);
+
+                    var height = style.height.slice(0, -2);
+
+                    var height2 = style2.height.slice(0, -2);
+
+                    var percent_thing = Math.round(height / height2 * 1000) / 10;
+
+                    console.log(percent_thing);
+
+                    document.getElementById("text").innerHTML = percent_thing + "%";
+
+                    if (percent_thing > 99.99999) {
+                        document.getElementById("text").innerHTML = "Waiting for server...";
+                    }
+
+
+                }
+
+                xhr.upload.onloadstart = function() {
+                    update_percent();
+
+                    text.style.fontSize = "xx-large";
+
+                    window.setInterval(function() {
+                        update_percent();
+                    }, 50);
+                }
+
+                xhr.open("POST", "https://marksism.space/uploads");
+                xhr.send(formData);
+            }
+
+            var check_file = function(file) {
+                const allowedTypes = ["image/"];
+                if (file[0].size > 25000000) {
+                    if (!file[0].type.includes(allowedTypes)) {
+                        alert("Too large and wrong file format (Only images under 25 mb allowed)");
+                        return false;
+                    }
+                    alert("Too large (Only images under 25 mb allowed)")
+                    return false;
+                }
+
+                if (!file[0].type.includes(allowedTypes)) {
+                    alert("Wrong file format (Only images under 25 mb allowed)");
+                    return false;
+                }
+                return true;
+            }
+
+            dropzone.ondrop = function(e) {
+                e.preventDefault();
+                this.className = 'dropzone';
+                if (check_file(e.dataTransfer.files)) {
+                    if (inner_dropzone.style.height < 0.01) {
+                        upload(e.dataTransfer.files);
+                    } else {
+                        alert("You're already uploading")
+                    }
+
+                }
+
+            }
+
+            dropzone.ondragover = function() {
+                this.className = 'dropzone dragover';
+                return false;
+            }
+
+            dropzone.ondragleave = function() {
+                this.className = 'dropzone';
+                return false;
+            }
+
+            dropzone.onclick = function() {
+                if (inner_dropzone.style.height < 0.01) {
+                    document.getElementById('file-input').type = 'file';
+
+                    document.getElementById('file-input').onchange = e => {
+                        var file = e.target.files[0];
+
+                        upload(e.target.files)
+                    }
+
+                    document.getElementById('file-input').click();
+                }
+
+            }
+        }());
+    </script>
+</body>
+
+</html>

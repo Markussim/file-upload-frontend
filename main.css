@@ -1,0 +1,28 @@
+.dropzone {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    border: 20px solid #ccc;
+    color: #ccc;
+    text-align: center;
+    margin: auto;
+    line-height: 80vh;
+    background: linear-gradient(0deg, blue 0%, white 0%);
+    z-index: 1;
+}
+
+.dropzone.dragover {
+    border-color: #000;
+    color: #000;
+}
+
+#inner_dropzone {
+    position: absolute;
+    ;
+    background-color: #3366ff;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    z-index: -1;
+    transition: all 1s;
+}
