@@ -67,16 +67,11 @@
 
                                     xhr.onreadystatechange = function() {
                                         var jsonobj = JSON.parse(this.responseText)
-                                        if (this.readyState == 4 && this.status == 200) {
+                                        if (this.status == 200) {
                                             console.log(this.responseText);
-                                            window.location = jsonobj.linkToFile;
+                                            window.location = "https://uploads.marksism.space" + jsonobj.link;
                                         } else {
-                                            if (jsonobj.error === "Only images allowed") {
-                                                alert("Endast bilder och videos är tillåtna");
-                                            }
-                                            if (jsonobj.error === "Max file size has been exeeded") {
-                                                alert("Din fil var för stor");
-                                            }
+                                            window.alert("Något gick fel")
                                         }
                                     };
 
