@@ -63,7 +63,7 @@
                                     var formData = new FormData();
                                     var xhr = new XMLHttpRequest;
 
-                                    formData.append("file", files[0]);
+                                    formData.append("theFile", files[0]);
 
                                     xhr.onreadystatechange = function() {
                                         var jsonobj = JSON.parse(this.responseText)
