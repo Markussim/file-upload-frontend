@@ -131,7 +131,7 @@
                                         requestAnimationFrame(everyFrame);
                                     }
 
-                                    xhr.open("POST", "https://marksism.space/uploads");
+                                    xhr.open("POST", "https://uploads.marksism.space/");
                                     xhr.send(formData);
                                 }
 
