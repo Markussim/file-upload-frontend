@@ -15,13 +15,16 @@
                     <div id="search_results">
                         <div class="dropzone" id="dropzone">
                             <div id="inner_dropzone"></div>
+                            <input style="display: none;" type="text" value="Hello World" id="myInput"> <br>
                             <p id="text">Släpp eller tryck här för att ladda upp</p>
+                            <p id="done"></p>
                             <input id="file-input" type="file" name="name" style="display: none;" />
                         </div>
                         <style>
                             .dropzone {
                                 position: relative;
                                 display: flex;
+                                flex-direction: column;
                                 height: 30vh;
                                 width: 380px;
                                 border: 2px solid #ccc;
@@ -52,6 +55,17 @@
                             }
                         </style>
                         <script>
+                            function copyText() {
+
+                                document.getElementById("myInput").select();
+
+                                document.getElementById("myInput").setSelectionRange(0, document.getElementById("myInput").value.length);
+
+                                document.execCommand('copy')
+
+                                console.log("Tried to copy");
+                            }
+
                             (function() {
                                 var dropzone = document.getElementById('dropzone');
 
@@ -68,8 +82,14 @@
                                     xhr.onreadystatechange = function() {
                                         var jsonobj = JSON.parse(this.responseText)
                                         if (this.status == 200) {
-                                            console.log(this.responseText);
-                                            window.location = "https://uploads.marksism.space" + jsonobj.link;
+                                            console.log("this.responseText");
+                                            //window.location = "https://uploads.marksism.space" + jsonobj.link;
+                                            document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Copiera länk</button>";
+
+                                            document.getElementById("myInput").value = "https://uploads.marksism.space" + jsonobj.link
+
+                                            document.getElementById("myInput").style.display = "block";
+
                                         } else {
                                             window.alert("Något gick fel")
                                         }
@@ -103,10 +123,12 @@
                                             percent_thing = percent_thing + ".0";
                                         }
 
-                                        document.getElementById("text").innerHTML = percent_thing + "%";
-
-                                        if (percent_thing == 100) {
-                                            document.getElementById("text").innerHTML = "Väntar på servern...";
+                                        if ((document.getElementById("done").innerHTML == "")) {
+                                            document.getElementById("text").innerHTML = percent_thing + "%";
+                                            return true;
+                                        } else {
+                                            document.getElementById("text").innerHTML = "";
+                                            return false;
                                         }
 
                                     }
@@ -119,8 +141,10 @@
                                         dropzone.style.cursor = "default";
 
                                         function everyFrame() {
-                                            update_percent();
-                                            requestAnimationFrame(everyFrame);
+                                            if(update_percent()) {
+                                                requestAnimationFrame(everyFrame);
+                                            }
+                                            
                                         }
 
                                         requestAnimationFrame(everyFrame);
@@ -173,7 +197,7 @@
                                         document.getElementById('file-input').onchange = e => {
                                             var file = e.target.files[0];
 
-                                            if(check_file(file)) {
+                                            if(check_file(e.target.files)) {
                                                 upload(e.target.files)
                                             }
                                             
