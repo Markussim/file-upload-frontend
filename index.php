@@ -16,7 +16,7 @@
                         <div class="dropzone" id="dropzone">
                             <div id="inner_dropzone"></div>
                             <p id="text">Släpp eller tryck här för att ladda upp</p>
-                            <input id="file-input" type="file" name="name" style="display: none;" accept="image/*,video/*" />
+                            <input id="file-input" type="file" name="name" style="display: none;" />
                         </div>
                         <style>
                             .dropzone {
@@ -135,17 +135,8 @@
 
                                     const video = "video/"
 
-                                    if (file[0].size > 25000000) {
-                                        if (!((file[0].type.includes(images)) || (file[0].type.includes(video)))) {
-                                            alert("Din fil var för stor och fel filformat (Bara bilder under 25 megabyte är tillåtna)");
-                                            return false;
-                                        }
-                                        alert("Too large (Only images under 25 mb allowed)")
-                                        return false;
-                                    }
-
-                                    if (!((file[0].type.includes(images)) || (file[0].type.includes(video)))) {
-                                        alert("Fel fil filformat (Bara bilder under 25 megabyte är tillåtna)");
+                                    if (file[0].size > 100000000) {
+                                        alert("Too large (Only images under 100 mb allowed)")
                                         return false;
                                     }
                                     return true;
@@ -182,7 +173,10 @@
                                         document.getElementById('file-input').onchange = e => {
                                             var file = e.target.files[0];
 
-                                            upload(e.target.files)
+                                            if(check_file(file)) {
+                                                upload(e.target.files)
+                                            }
+                                            
                                         }
 
                                         document.getElementById('file-input').click();
