@@ -84,7 +84,7 @@
                                         if (this.status == 200) {
                                             console.log("this.responseText");
                                             //window.location = "https://uploads.marksism.space" + jsonobj.link;
-                                            document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Copiera länk</button>";
+                                            document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Copiera länk</button><button onclick=\"location.reload(true);\">Ladda upp en till fil</button>";
 
                                             document.getElementById("myInput").value = "https://uploads.marksism.space" + jsonobj.link
 
