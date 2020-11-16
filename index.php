@@ -73,9 +73,16 @@
 
                                 var text = document.getElementById('text');
 
+                                let MBps = 0;
+
+                                let timeLeftHumanReadble
+
                                 var upload = function(files) {
                                     var formData = new FormData();
                                     var xhr = new XMLHttpRequest;
+
+                                    let t0 = 0;
+                                    let d0 = 0;
 
                                     formData.append("theFile", files[0]);
 
@@ -96,6 +103,12 @@
                                     };
 
                                     xhr.upload.onprogress = function(e) {
+                                        MBps = e.loaded > 0 ?
+                                            ((e.loaded - d0) * 0.00000095367432) /
+                                            ((performance.now() - t0) / 1000) : 0;
+                                        let timeLeft = ((e.total - e.loaded) * 0.00000095367432) / MBps;
+                                        timeLeftHumanReadble = timeLeft > 60 ? (timeLeft / 60).toFixed(1) + "m" : timeLeft.toFixed(1) + "s"
+
                                         //console.log(e.loaded / e.total * 100);
                                         var length = e.loaded / e.total * 100;
                                         var whats_left = 100 - length
@@ -105,6 +118,9 @@
                                         inner_dropzone.style.height = length + "%";
 
                                         inner_dropzone.style.transition = "all " + e.total / 10000000 + "s";
+
+                                        t0 = performance.now();
+                                        d0 = e.loaded;
                                     }
 
                                     var update_percent = function() {
@@ -124,7 +140,7 @@
                                         }
 
                                         if ((document.getElementById("done").innerHTML == "")) {
-                                            document.getElementById("text").innerHTML = percent_thing + "%";
+                                            document.getElementById("text").innerHTML = percent_thing + "%<br>(" + parseFloat(MBps).toFixed(1) + " MB/s)<br>" + timeLeftHumanReadble + " kvar";
                                             return true;
                                         } else {
                                             document.getElementById("text").innerHTML = "";
@@ -141,10 +157,10 @@
                                         dropzone.style.cursor = "default";
 
                                         function everyFrame() {
-                                            if(update_percent()) {
+                                            if (update_percent()) {
                                                 requestAnimationFrame(everyFrame);
                                             }
-                                            
+
                                         }
 
                                         requestAnimationFrame(everyFrame);
@@ -197,10 +213,10 @@
                                         document.getElementById('file-input').onchange = e => {
                                             var file = e.target.files[0];
 
-                                            if(check_file(e.target.files)) {
+                                            if (check_file(e.target.files)) {
                                                 upload(e.target.files)
                                             }
-                                            
+
                                         }
 
                                         document.getElementById('file-input').click();
