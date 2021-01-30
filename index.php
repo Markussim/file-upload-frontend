@@ -88,7 +88,7 @@
 
                                     xhr.onreadystatechange = function() {
                                         //var jsonobj = JSON.parse(this.responseText)
-                                        if (this.status == 200) {
+                                        if (this.status == 200 || this.status == 204) {
                                             console.log("this.responseText");
                                             //window.location = "https://uploads.marksism.space" + jsonobj.link;
                                             document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Copiera länk</button><button onclick=\"location.reload(true);\">Ladda upp en till fil</button>";
