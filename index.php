@@ -91,7 +91,7 @@
                                         if (this.status == 200 || this.status == 204) {
                                             console.log("this.responseText");
 
-                                            document.getElementById("done").innerHTML = "";
+                                            document.getElementById("text").innerHTML = "";
                                             //window.location = "https://uploads.marksism.space" + jsonobj.link;
                                             document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Copiera länk</button><button onclick=\"location.reload(true);\">Ladda upp en till fil</button>";
 
