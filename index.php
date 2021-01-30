@@ -98,7 +98,7 @@
                                             document.getElementById("myInput").style.display = "block";
 
                                         } else {
-                                            window.alert("Något gick fel 3dsfdsf")
+                                            window.alert("Något gick fel " + this.status)
                                         }
                                     };
 
