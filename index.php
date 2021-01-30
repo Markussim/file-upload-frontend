@@ -136,6 +136,12 @@
 
                                         var percent_thing = Math.round(height / height2 * 1000) / 10;
 
+                                        if(percent_thing == 100) {
+                                            alert("Done")
+
+                                            document.getElementById("text").innerHTML = "Waiting for server"
+                                        }
+
                                         if (percent_thing.toString().indexOf(".") == -1) {
                                             percent_thing = percent_thing + ".0";
                                         }
@@ -146,12 +152,6 @@
                                         } else {
                                             document.getElementById("text").innerHTML = "";
                                             return false;
-                                        }
-
-                                        if(percent_thing == 100) {
-                                            alert("Done")
-
-                                            document.getElementById("text").innerHTML = "Waiting for server"
                                         }
 
                                     }
