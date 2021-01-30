@@ -136,6 +136,8 @@
 
                                         var percent_thing = Math.round(height / height2 * 1000) / 10;
 
+                                        console.log(percent_thing)
+
                                         if(percent_thing == 100) {
                                             alert("Done")
 
