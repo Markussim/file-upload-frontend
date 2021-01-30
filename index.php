@@ -176,8 +176,8 @@
 
                                     const video = "video/"
 
-                                    if (file[0].size > 100000000) {
-                                        alert("Too large (Only images under 100 mb allowed)")
+                                    if (file[0].size > 300000000) {
+                                        alert("Too large (Only images under 300 mb allowed)")
                                         return false;
                                     }
                                     return true;
