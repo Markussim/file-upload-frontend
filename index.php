@@ -148,7 +148,11 @@
                                             return false;
                                         }
 
-                                        if(percent_thing == 100) document.getElementById("text").innerHTML = "Waiting for server"
+                                        if(percent_thing == 100) {
+                                            alert("Done")
+
+                                            document.getElementById("text").innerHTML = "Waiting for server"
+                                        }
 
                                     }
 
