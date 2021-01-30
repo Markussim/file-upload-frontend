@@ -148,6 +148,8 @@
                                             return false;
                                         }
 
+                                        if(percent_thing == 100) document.getElementById("text").innerHTML = "Waiting for server"
+
                                     }
 
                                     xhr.upload.onloadstart = function() {
