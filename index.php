@@ -77,6 +77,8 @@
 
                                 let timeLeftHumanReadble
 
+                                let arrayOfBirate = []
+
                                 var upload = function(files) {
                                     var formData = new FormData();
                                     var xhr = new XMLHttpRequest;
@@ -110,6 +112,13 @@
                                             ((e.loaded - d0) * 0.00000095367432) /
                                             ((performance.now() - t0) / 1000) : 0;
                                         let timeLeft = ((e.total - e.loaded) * 0.00000095367432) / MBps;
+
+                                        if(arrayOfBirate.length > 9) arrayOfBirate.shift()
+
+                                        arrayOfBirate.push(MBps);
+
+                                        console.log(arrayOfBirate)
+
                                         timeLeftHumanReadble = timeLeft > 60 ? (timeLeft / 60).toFixed(1) + "m" : timeLeft.toFixed(1) + "s"
 
                                         //console.log(e.loaded / e.total * 100);
