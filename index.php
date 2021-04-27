@@ -130,7 +130,7 @@
 
                                         inner_dropzone.style.height = length + "%";
 
-                                        inner_dropzone.style.transition = "all " + 0.2 + "s";
+                                        inner_dropzone.style.transition = "all " + 0.5 + "s";
 
                                         t0 = performance.now();
                                         d0 = e.loaded;
