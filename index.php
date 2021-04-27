@@ -122,7 +122,7 @@
 
                                         let timeLeft = ((e.total - e.loaded) * 0.00000095367432) / averageBitRate;
 
-                                        timeLeftHumanReadble = averageBitRate > 60 ? (averageBitRate / 60).toFixed(1) + "m" : averageBitRate.toFixed(1) + "s"
+                                        timeLeftHumanReadble = timeLeft > 60 ? (timeLeft / 60).toFixed(1) + "m" : timeLeft.toFixed(1) + "s"
 
                                         //console.log(e.loaded / e.total * 100);
                                         var length = e.loaded / e.total * 100;
