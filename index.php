@@ -116,7 +116,7 @@
 
                                         arrayOfBirate.push(MBps);
 
-                                        let averageBitRate = arrayOfBirate.reduce((a, b) => {return a + b;}) / arrayOfBirate.length;
+                                        MBps = arrayOfBirate.reduce((a, b) => {return a + b;}) / arrayOfBirate.length;
 
                                         console.log(averageBitRate)
 
