@@ -111,13 +111,16 @@
                                         MBps = e.loaded > 0 ?
                                             ((e.loaded - d0) * 0.00000095367432) /
                                             ((performance.now() - t0) / 1000) : 0;
-                                        let timeLeft = ((e.total - e.loaded) * 0.00000095367432) / MBps;
 
-                                        if(arrayOfBirate.length > 9) arrayOfBirate.shift()
+                                        if(arrayOfBirate.length > 19) arrayOfBirate.shift()
 
                                         arrayOfBirate.push(MBps);
 
-                                        console.log(arrayOfBirate)
+                                        let averageBitRate = arrayOfBirate.reduce((a, b) => {return a + b;}) / arrayOfBirate.length;
+
+                                        console.log(averageBitRate)
+
+                                        let timeLeft = ((e.total - e.loaded) * 0.00000095367432) / MBps;
 
                                         timeLeftHumanReadble = timeLeft > 60 ? (timeLeft / 60).toFixed(1) + "m" : timeLeft.toFixed(1) + "s"
 
