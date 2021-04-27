@@ -118,9 +118,7 @@
 
                                         MBps = arrayOfBirate.reduce((a, b) => {return a + b;}) / arrayOfBirate.length;
 
-                                        console.log(averageBitRate)
-
-                                        let timeLeft = ((e.total - e.loaded) * 0.00000095367432) / averageBitRate;
+                                        let timeLeft = ((e.total - e.loaded) * 0.00000095367432) / MBps;
 
                                         timeLeftHumanReadble = timeLeft > 60 ? (timeLeft / 60).toFixed(1) + "m" : timeLeft.toFixed(1) + "s"
 
