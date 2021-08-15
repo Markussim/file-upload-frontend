@@ -95,7 +95,7 @@
                                             console.log("this.responseText");
 
                                             document.getElementById("text").innerHTML = "";
-                                            document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Kopiera länk</button><button onclick=\"location.reload(true);\">Ladda upp en till fil</button><div id=\"qr\" style=\"padding-top: 20px;\"></div>";
+                                            document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Kopiera länk</button><button onclick=\"location.reload(true);\">Ladda upp en till fil</button>";
 
                                             document.getElementById("myInput").value = "https://uploads.marksism.space" + this.responseText
 
