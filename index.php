@@ -117,7 +117,7 @@
                                             });
 
                                             
-                                            if(!document.getElementsByTagName("canvas"))  {
+                                            if(document.getElementsByTagName("canvas").length < 1)  {
                                                 console.log("Added qr")
                                                 qrCode.append(document.getElementById("dropzone"));
                                                 document.getElementsByTagName("canvas")[0].style = "height:100%;";
