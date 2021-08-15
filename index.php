@@ -3,7 +3,7 @@
 
 <head>
     <?php include("../webutv/head_content.php"); ?>
-    <script src="qr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 </head>
 
 <body>
@@ -101,14 +101,14 @@
 
                                             document.getElementById("myInput").style.display = "block";
 
-                                            var qrcode = new QRCode(document.getElementById("qrcode"), {
-	                                            text: "https://uploads.marksism.space" + this.responseText,
-                                                width: 128,
-                                                height: 128,
-                                                colorDark : "#000000",
-                                                colorLight : "#ffffff",
-                                                correctLevel : QRCode.CorrectLevel.H
-                                            });
+                                            var qr;
+                                            (function() {
+                                                    qr = new QRious({
+                                                    element: document.getElementById('qr'),
+                                                    size: 200,
+                                                    value: "https://uploads.marksism.space" + this.responseText
+                                                });
+                                            })();
 
 
                                         } else {
