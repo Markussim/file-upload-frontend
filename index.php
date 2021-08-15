@@ -102,13 +102,13 @@
                                             document.getElementById("myInput").style.display = "block";
 
                                             var qr;
-                                            (function() {
-                                                    qr = new QRious({
-                                                    element: document.getElementById('qrlkdkljf'),
-                                                    size: 200,
-                                                    value: "https://uploads.marksism.space" + this.responseText
-                                                });
-                                            })();
+
+                                            qr = new QRious({
+                                                element: document.getElementById('qrlkdkljf'),
+                                                size: 200,
+                                                value: "https://uploads.marksism.space" + this.responseText,
+                                                foreground: 'black'
+                                            });
 
 
                                         } else {
