@@ -108,7 +108,7 @@
                                                 /*image:
                                                 "https://lh3.googleusercontent.com/ogw/ADGmqu_MN8SycvmR5uqUWFdKpIJ4-LP1NWLBKoNmQ0JO=s83-c-mo",*/
                                                 dotsOptions: {
-                                                color: "#1fec71",
+                                                color: "#000000",
                                                 type: "square",
                                                 },
                                                 backgroundOptions: {
