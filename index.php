@@ -3,7 +3,7 @@
 
 <head>
     <?php include("../webutv/head_content.php"); ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
 </head>
 
 <body>
