@@ -105,8 +105,8 @@
                                                 width: 150,
                                                 height: 150,
                                                 data: "https://uploads.marksism.space" + this.responseText,
-                                                /*image:
-                                                "https://lh3.googleusercontent.com/ogw/ADGmqu_MN8SycvmR5uqUWFdKpIJ4-LP1NWLBKoNmQ0JO=s83-c-mo",*/
+                                                image:
+                                                "https://marksism.space/favicon-16x16.png",
                                                 dotsOptions: {
                                                 color: "#000000",
                                                 type: "square",
