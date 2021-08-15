@@ -103,6 +103,8 @@
 
                                             document.getElementById("myInput").style.display = "block";
 
+                                            console.log(downloadlink)
+
                                             const qrCode = new QRCodeStyling({
                                                 width: 512,
                                                 height: 512,
