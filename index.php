@@ -106,10 +106,13 @@
                                             console.log(downloadlink)
                                             
                                             if(document.getElementsByTagName("canvas").length < 1)  {
+                                                let tempDownload = downloadlink;
+                                                consolse.log(tempDownload)
+
                                                 const qrCode = new QRCodeStyling({
                                                 width: 512,
                                                 height: 512,
-                                                data: downloadlink,
+                                                data: tempDownload,
                                                 image:
                                                 "https://marksism.space/icon.svg",
                                                 dotsOptions: {
