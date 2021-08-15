@@ -105,7 +105,7 @@
                                             
                                             if(document.getElementsByTagName("canvas").length < 1)  {
                                                 let tempDownload = downloadlink;
-                                                console.log(tempDownload)
+                                                console.log(this.responseText)
 
                                                 const qrCode = new QRCodeStyling({
                                                 width: 512,
