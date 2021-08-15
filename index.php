@@ -108,7 +108,7 @@
                                             const qrCode = new QRCodeStyling({
                                                 width: 512,
                                                 height: 512,
-                                                data: downloadlink,
+                                                data: "downloadlink",
                                                 image:
                                                 "https://marksism.space/icon.svg",
                                                 dotsOptions: {
