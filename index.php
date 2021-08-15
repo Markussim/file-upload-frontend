@@ -77,6 +77,8 @@
 
                                 let timeLeftHumanReadble
 
+                                let arrayOfBirate = []
+
                                 var upload = function(files) {
                                     var formData = new FormData();
                                     var xhr = new XMLHttpRequest;
@@ -109,7 +111,15 @@
                                         MBps = e.loaded > 0 ?
                                             ((e.loaded - d0) * 0.00000095367432) /
                                             ((performance.now() - t0) / 1000) : 0;
+
+                                        if(arrayOfBirate.length > 19) arrayOfBirate.shift()
+
+                                        arrayOfBirate.push(MBps);
+
+                                        MBps = arrayOfBirate.reduce((a, b) => {return a + b;}) / arrayOfBirate.length;
+
                                         let timeLeft = ((e.total - e.loaded) * 0.00000095367432) / MBps;
+
                                         timeLeftHumanReadble = timeLeft > 60 ? (timeLeft / 60).toFixed(1) + "m" : timeLeft.toFixed(1) + "s"
 
                                         //console.log(e.loaded / e.total * 100);
@@ -120,7 +130,7 @@
 
                                         inner_dropzone.style.height = length + "%";
 
-                                        inner_dropzone.style.transition = "all " + e.total / 10000000 + "s";
+                                        inner_dropzone.style.transition = "all " + 0.5 + "s";
 
                                         t0 = performance.now();
                                         d0 = e.loaded;
