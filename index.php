@@ -104,7 +104,7 @@
                                             var qr;
                                             (function() {
                                                     qr = new QRious({
-                                                    element: document.getElementById('qr'),
+                                                    element: document.getElementById('qrlkdkljf'),
                                                     size: 200,
                                                     value: "https://uploads.marksism.space" + this.responseText
                                                 });
