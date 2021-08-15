@@ -104,8 +104,6 @@
                                             document.getElementById("myInput").style.display = "block";
                                             
                                             if(document.getElementsByTagName("canvas").length < 1 && this.responseText)  {
-                                                let tempDownload = downloadlink;
-                                                console.log(this.responseText)
 
                                                 const qrCode = new QRCodeStyling({
                                                 width: 512,
