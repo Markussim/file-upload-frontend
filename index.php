@@ -102,8 +102,8 @@
                                             document.getElementById("myInput").style.display = "block";
 
                                             const qrCode = new QRCodeStyling({
-                                                width: 150,
-                                                height: 150,
+                                                width: 512,
+                                                height: 512,
                                                 data: "https://uploads.marksism.space" + this.responseText,
                                                 image:
                                                 "https://marksism.space/icon.svg",
@@ -117,6 +117,8 @@
                                             });
 
                                             qrCode.append(document.getElementById("qr"));
+
+                                            document.getElementById("qr").children[0].style = "height: 150px;width:150px;";
 
 
                                         } else {
