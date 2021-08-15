@@ -102,8 +102,8 @@
                                             document.getElementById("myInput").style.display = "block";
 
                                             const qrCode = new QRCodeStyling({
-                                                width: 80,
-                                                height: 80,
+                                                width: 100,
+                                                height: 100,
                                                 data: "https://uploads.marksism.space" + this.responseText,
                                                 /*image:
                                                 "https://lh3.googleusercontent.com/ogw/ADGmqu_MN8SycvmR5uqUWFdKpIJ4-LP1NWLBKoNmQ0JO=s83-c-mo",*/
