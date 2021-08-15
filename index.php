@@ -116,9 +116,10 @@
                                                 },
                                             });
 
+                                            console.log("Added qr")
                                             qrCode.append(document.getElementById("dropzone"));
 
-                                            document.getElementsByTagName("canvas")[0].style = "max-height:200px;";
+                                            document.getElementsByTagName("canvas")[0].style = "height:100%;";
 
 
                                         } else {
