@@ -116,7 +116,7 @@
                                                 },
                                             });
 
-                                            qrCode.append(document.getElementById("done"));
+                                            qrCode.append(document.getElementById("dropzone"));
 
                                             document.getElementsByTagName("canvas")[0].style = "max-height:200px;";
 
