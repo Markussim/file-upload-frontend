@@ -95,15 +95,15 @@
                                             console.log("this.responseText");
 
                                             document.getElementById("text").innerHTML = "";
-                                            document.getElementById("done").innerHTML = "<div id=\"qr\"></div><button onclick=\"copyText()\">Kopiera länk</button><button onclick=\"location.reload(true);\">Ladda upp en till fil</button>";
+                                            document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Kopiera länk</button><button onclick=\"location.reload(true);\">Ladda upp en till fil</button><div id=\"qr\"></div>";
 
                                             document.getElementById("myInput").value = "https://uploads.marksism.space" + this.responseText
 
                                             document.getElementById("myInput").style.display = "block";
 
                                             const qrCode = new QRCodeStyling({
-                                                width: 300,
-                                                height: 300,
+                                                width: 80,
+                                                height: 80,
                                                 data: "https://uploads.marksism.space" + this.responseText,
                                                 /*image:
                                                 "https://lh3.googleusercontent.com/ogw/ADGmqu_MN8SycvmR5uqUWFdKpIJ4-LP1NWLBKoNmQ0JO=s83-c-mo",*/
