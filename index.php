@@ -103,7 +103,7 @@
 
                                             document.getElementById("myInput").style.display = "block";
                                             
-                                            if(document.getElementsByTagName("canvas").length < 1)  {
+                                            if(document.getElementsByTagName("canvas").length < 1 && this.responseText)  {
                                                 let tempDownload = downloadlink;
                                                 console.log(this.responseText)
 
