@@ -104,11 +104,12 @@
                                             document.getElementById("myInput").style.display = "block";
 
                                             console.log(downloadlink)
-
-                                            const qrCode = new QRCodeStyling({
+                                            
+                                            if(document.getElementsByTagName("canvas").length < 1)  {
+                                                const qrCode = new QRCodeStyling({
                                                 width: 512,
                                                 height: 512,
-                                                data: "downloadlink",
+                                                data: downloadlink,
                                                 image:
                                                 "https://marksism.space/icon.svg",
                                                 dotsOptions: {
@@ -120,16 +121,11 @@
                                                 },
                                             });
 
-                                            
-                                            if(document.getElementsByTagName("canvas").length < 1)  {
                                                 console.log("Added qr")
                                                 qrCode.append(document.getElementById("dropzone"));
                                                 document.getElementsByTagName("canvas")[0].style = "height:100%; padding: 10px;";
                                             }
                                             
-
-                                            
-
 
                                         } else {
                                             if(this.status != 0) window.alert("Något gick fel " + this.status)
