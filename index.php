@@ -116,9 +116,9 @@
                                                 },
                                             });
 
-                                            qrCode.append(document.getElementById("qr"));
+                                            qrCode.append(document.getElementById("done"));
 
-                                            document.getElementById("qr").children[0].style = "max-height:200px;";
+                                            document.getElementsByTagName("canvas")[0].style = "max-height:200px;";
 
 
                                         } else {
