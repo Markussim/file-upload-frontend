@@ -95,12 +95,22 @@
                                             console.log("this.responseText");
 
                                             document.getElementById("text").innerHTML = "";
-                                            //window.location = "https://uploads.marksism.space" + jsonobj.link;
+                                            document.getElementById("done").innerHTML = "<div id=\"qr\"></div>";
                                             document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Kopiera länk</button><button onclick=\"location.reload(true);\">Ladda upp en till fil</button>";
 
                                             document.getElementById("myInput").value = "https://uploads.marksism.space" + this.responseText
 
                                             document.getElementById("myInput").style.display = "block";
+
+                                            var qrcode = new QRCode(document.getElementById("qrcode"), {
+	                                            text: "https://uploads.marksism.space" + this.responseText,
+                                                width: 128,
+                                                height: 128,
+                                                colorDark : "#000000",
+                                                colorLight : "#ffffff",
+                                                correctLevel : QRCode.CorrectLevel.H
+                                            });
+
 
                                         } else {
                                             if(this.status != 0) window.alert("Något gick fel " + this.status)
