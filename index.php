@@ -118,7 +118,7 @@
 
                                             qrCode.append(document.getElementById("qr"));
 
-                                            document.getElementById("qr").children[0].style = "height:200px;";
+                                            document.getElementById("qr").children[0].style = "max-height:200px;";
 
 
                                         } else {
