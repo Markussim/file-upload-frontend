@@ -94,17 +94,19 @@
                                         if (this.status == 200 || this.status == 204) {
                                             console.log("this.responseText");
 
+                                            let downloadlink = "https://uploads.marksism.space" + this.responseText;
+
                                             document.getElementById("text").innerHTML = "";
                                             document.getElementById("done").innerHTML = "<button onclick=\"copyText()\">Kopiera länk</button><button onclick=\"location.reload(true);\">Ladda upp en till fil</button>";
 
-                                            document.getElementById("myInput").value = "https://uploads.marksism.space" + this.responseText
+                                            document.getElementById("myInput").value = downloadlink
 
                                             document.getElementById("myInput").style.display = "block";
 
                                             const qrCode = new QRCodeStyling({
                                                 width: 512,
                                                 height: 512,
-                                                data: "https://uploads.marksism.space" + this.responseText,
+                                                data: downloadlink,
                                                 image:
                                                 "https://marksism.space/icon.svg",
                                                 dotsOptions: {
