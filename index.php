@@ -3,6 +3,7 @@
 
 <head>
     <?php include("../webutv/head_content.php"); ?>
+    <script src="qr.js">
 </head>
 
 <body>
