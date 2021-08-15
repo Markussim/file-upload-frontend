@@ -101,14 +101,22 @@
 
                                             document.getElementById("myInput").style.display = "block";
 
-                                            var qr;
-
-                                            qr = new QRious({
-                                                element: document.getElementById('qrlkdkljf'),
-                                                size: 200,
-                                                value: "https://uploads.marksism.space" + this.responseText,
-                                                foreground: 'black'
+                                            const qrCode = new QRCodeStyling({
+                                                width: 300,
+                                                height: 300,
+                                                data: "https://uploads.marksism.space" + this.responseText,
+                                                /*image:
+                                                "https://lh3.googleusercontent.com/ogw/ADGmqu_MN8SycvmR5uqUWFdKpIJ4-LP1NWLBKoNmQ0JO=s83-c-mo",*/
+                                                dotsOptions: {
+                                                color: "#1fec71",
+                                                type: "square",
+                                                },
+                                                backgroundOptions: {
+                                                color: "#FFFFFF",
+                                                },
                                             });
+
+                                            qrCode.append(document.getElementById("qr"));
 
 
                                         } else {
